@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context>
-    <Resource name="jdbc/conecciones" type="javax.sql.DataSource" maxActive="100" maxIdle="30" maxWait="1000" url="jdbc:mysql://localhost:3306/Gestion?serverTimezone=America/Bogota" driverClassName="com.mysql.cj.jdbc.Driver" username="administrador" password="pAss1234" >
-</Resource>
+<Context antiJARLocking="true" path="/appReservas/">
 
+    <Resource name="jdbc/conecciones" type="javax.sql.DataSource" maxActive="100" maxIdle="30" maxWait="1000" url="jdbc:mysql://localhost:3306/Gestion?serverTimezone=America/Bogota" driverClassName="com.mysql.cj.jdbc.Driver" username="administrador" password="pAss1234" > </Resource>
 </Context>
