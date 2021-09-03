@@ -2,8 +2,8 @@ package com.jp.appreservas;
 
 import java.io.IOException;
 import java.util.Map;
-
 import javax.annotation.Resource;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +31,6 @@ public class ControladorAdmin extends HttpServlet {
     public ControladorAdmin() {
         super();
 
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -39,7 +38,6 @@ public class ControladorAdmin extends HttpServlet {
      * response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doPost(request, response);
     }
 
@@ -48,7 +46,6 @@ public class ControladorAdmin extends HttpServlet {
      * response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         //comprobamos inicio de sesion
 
         Autenticacion aut = new Autenticacion(conexiones, request.getSession());

@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.regex.Pattern;
-
 import javax.annotation.Resource;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +27,7 @@ public class ControladorPrincipal extends HttpServlet {
     @Resource(name = "jdbc/conecciones")
     private DataSource conexiones;
     private Map<String, String[]> Parametros;
-    private ArrayList<String[]> Alertas = new ArrayList<String[]>();
+    private ArrayList<String[]> Alertas = new ArrayList<>();
     private Reserva reserva = new Reserva(0);
 
     /**
@@ -35,8 +35,6 @@ public class ControladorPrincipal extends HttpServlet {
      */
     public ControladorPrincipal() {
         super();
-
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -44,7 +42,6 @@ public class ControladorPrincipal extends HttpServlet {
      * response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doPost(request, response);
     }
 
@@ -53,7 +50,6 @@ public class ControladorPrincipal extends HttpServlet {
      * response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         //comprobamos inicio de sesion
 
         String Metodo = request.getMethod();

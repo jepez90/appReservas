@@ -3,7 +3,7 @@
     <display-name>App de reservas del CDA</display-name>
     <description>Applicacion de gestion de reservas para la revision técnico mecánica</description> 
     <welcome-file-list>
-        <welcome-file>Reservas</welcome-file>
+        <welcome-file>Gestion</welcome-file>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
     </welcome-file-list>
