@@ -44,19 +44,28 @@ public class ControladorGestion extends HttpServlet {
     }
 
     /**
+     * @param request
+     * @param response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
      * response)
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
     /**
+     * @param request
+     * @param response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
      * response)
      */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         //comprobamos inicio de sesion
         //System.out.println(request.getContextPath());
         Autenticacion aut = new Autenticacion(conexiones, request.getSession());
@@ -120,7 +129,7 @@ public class ControladorGestion extends HttpServlet {
         if (Parametros.containsKey("Placa")) {
             placa = Parametros.get("Placa")[0].toUpperCase();
         } else if (Parametros.containsKey("PlacaNueva")) {
-            placa = Parametros.get("PlacaNueva")[0].toUpperCase();
+            placa = Parametros.get("PlacaNueva")[0].toUpperCase(); 
         }
 
         if (Parametros.containsKey("Fecha")) {

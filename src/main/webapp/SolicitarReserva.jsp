@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
-	%><%@ page import="appReservas.*"%><%
+	%><%@ page import="com.jp.appreservas.*"%><%
 	boolean isEditUser=false;
 	Usuario usuario=null;
 	if(request.getAttribute("Usuario")!=null){

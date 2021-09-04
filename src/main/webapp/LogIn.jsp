@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
-	%><%@ page import="com.jp.appReservas.*"%><%
+	%><%@ page import="com.jp.appreservas.*"%><%
 	boolean invalidData=(request.getAttribute("invalidData")!=null)?(boolean)request.getAttribute("invalidData"):false;
 	boolean isInactive=(request.getAttribute("isInactive")!=null)?(boolean)request.getAttribute("isInactive"):false;
 	%>

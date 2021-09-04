@@ -26,16 +26,16 @@ public class ModeloReserva {
         try {
             conexion = conexiones.getConnection();
             if (placa.equals("")) {
-                sql = "SELECT * FROM reservas R JOIN tipo_revision TR ON TR.Id=R.TipoDeRevisionId "
-                        + "JOIN tipo_vehiculo TV ON TV.Id=R.TipoDeVehiculoId "
+                sql = "SELECT * FROM reservas R JOIN TipoDeRevision TR ON TR.Id=R.TipoDeRevisionId "
+                        + "JOIN TipoDeVehiculo TV ON TV.Id=R.TipoDeVehiculoId "
                         + " WHERE R.Activa=1 AND R.FechaReserva= ? AND R.TipoDeVehiculoId=? ORDER BY R.FechaReserva, R.HoraReserva  ";
                 st = conexion.prepareStatement(sql);
                 st.setDate(1, fecha.getDateSql());
                 st.setInt(2, tipo);
 
             } else {
-                sql = "SELECT * FROM reservas R JOIN tipo_revision TR ON TR.Id=R.TipoDeRevisionId "
-                        + "JOIN tipo_vehiculo TV ON TV.Id=R.TipoDeVehiculoId "
+                sql = "SELECT * FROM reservas R JOIN TipoDeRevision TR ON TR.Id=R.TipoDeRevisionId "
+                        + "JOIN TipoDeVehiculo TV ON TV.Id=R.TipoDeVehiculoId "
                         + "WHERE R.Activa=1 AND R.Placa= ? ORDER BY R.FechaReserva, R.HoraReserva ";
                 st = conexion.prepareStatement(sql);
                 st.setString(1, placa);
@@ -99,7 +99,7 @@ public class ModeloReserva {
                 conexion = conexiones.getConnection();
             }
 
-            sql = "SELECT * FROM clientes C JOIN tipo_documento TD ON C.TipoDocId=TD.Id WHERE C.Id=? ";
+            sql = "SELECT * FROM clientes C JOIN TipoDoc TD ON C.TipoDocId=TD.Id WHERE C.Id=? ";
             st = conexion.prepareStatement(sql);
             st.setInt(1, Id);
             st.execute();
@@ -137,12 +137,12 @@ public class ModeloReserva {
 
         sqlInsertReserva = "INSERT INTO RESERVAS ( FechaReserva, HoraReserva, Placa, PropietarioId ,ConductorId, TipoDeRevisionId,TipoDeVehiculoId, UsuarioRegistraId) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         sqlUpdateReserva = "UPDATE RESERVAS R SET R.FechaReserva=?,R.HoraReserva=?, R.PropietarioId=?, R.ConductorId=?,"
-                + "R.UsuarioRegistraId=?,R.TipoDeRevisionId=?,R.Temperatura=?,R.UsuarioRegistraId=? WHERE R.Id=?";
+                + "R.UsuarioRegistraId=?,R.TipoDeRevisionId=?,R.Ingresado=?,R.UsuarioRegistraId=? WHERE R.Id=?";
         sqlInsertCliente = "INSERT INTO CLIENTES (TipoDocId, Doc, Nombres, Celular) VALUES(?, ?, ?, ?)";
         sqlObtieneIdCliente = "SELECT last_insert_id() AS Id";
         sqlUpdateCliente = "UPDATE CLIENTES SET TipoDocId=?, Doc=?, Nombres=?, Celular=? WHERE Id=?";
 
-        String[] dias = new String[]{"", "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "S�bado"};
+        String[] dias = new String[]{"", "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"};
         String[] meses = new String[]{"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
         try {
@@ -255,7 +255,6 @@ public class ModeloReserva {
             }
             conexion.commit();
             conexion.close();
-            return;
         } catch (SQLException e) {
             try {
                 conexion.rollback();
@@ -264,7 +263,6 @@ public class ModeloReserva {
             }
             e.printStackTrace();
             setAlert(new String[]{"Error", e.getMessage()});
-            return;
         }
 
     }
@@ -281,6 +279,6 @@ public class ModeloReserva {
     private DataSource conexiones;
     private Connection conexion;
 
-    private ArrayList<String[]> alert = new ArrayList<String[]>();
+    private ArrayList<String[]> alert = new ArrayList<>();
 
 }

@@ -57,7 +57,7 @@ public class ModeloHorarios {
                         new Fecha("00:00:00"),
                         new Fecha("00:00:00")
                 );
-                horario.setComentario(rs.getString("Error"));
+                //horario.setComentario(rs.    .getString("Error"));
             }
             sql = "SELECT HoraDelDia, Minuto  FROM reservasxhora r WHERE r.TipoDeVehiculoId=? order by HoraDelDia, Minuto";
             st = conexion.prepareStatement(sql);

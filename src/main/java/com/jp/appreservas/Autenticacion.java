@@ -249,7 +249,7 @@ public class Autenticacion {
         PreparedStatement st;
         ResultSet rs;
         Usuario usuario = new Usuario();
-        String sql = "SELECT * FROM USUARIOS U WHERE U.Usuario=? AND U.Pass=AES_ENCRYPT(?,?) ";
+        String sql = "SELECT * FROM Usuario U WHERE U.Usuario=? AND U.Pass=AES_ENCRYPT(?,?) ";
 
         try {
             conexion = conexiones.getConnection();
